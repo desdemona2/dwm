@@ -70,19 +70,11 @@ static const char *thunar[]   =  { "thunar", NULL };
 static const char *st[]       =  { "st", NULL };
 static const char *telegram[] =  { "telegram-desktop", NULL };
 static const char *code[]     =  { "code", NULL };
+static const char *rofi[]	  =  { "rofi", "-show", "drun", NULL };
 
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
 static const StatusCmd statuscmds[] = {
-	{ "$HOME/scripts/status/Click/network_click.sh", 	1 },
-	{ "$HOME/scripts/status/Click/cpu_click.sh", 		2 },
-	{ "notify-send 3rd", 								3 },
-	{ "pavucontrol &", 									4 },
-	{ "$HOME/scripts/status/Click/time_click.sh", 		5 },
-	{ "$HOME/scripts/status/Click/battery_click.sh", 	6 },
-	{ "$HOME/scripts/status/Click/update_click.sh", 	7 },
-	{ "brave &", 										8 },
-	{ "telegram-desktop", 								9 },
-	{ "i3lock -i $HOME/.i3wall.png", 					10 },
+	{ "notify-send Mouse$BUTTON", 1 },
 };
 static const char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
 
@@ -91,15 +83,16 @@ static Key keys[] = {
 	/* ************************* Application keys  ************************* */
 
 	/* modifier             key        function        argument */
-	{ MODKEY,				XK_Return, spawn,      {.v = termcmd } },	  // Alacritty
-	{ MODKEY|ShiftMask,     XK_p,      spawn,      {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,     XK_Return, spawn,      {.v = st } },
+	{ MODKEY,				XK_Return, spawn,      {.v = st  } },	     // st Terminal
+	{ MODKEY|ShiftMask,     XK_p,      spawn,      {.v = rofi } },
+	{ MODKEY|ShiftMask,     XK_Return, spawn,      {.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_b,	   spawn,	   {.v = brave } },  	 // Brave
 	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   {.v = chrome  } }, 	 // Chrome
 	{ MODKEY|ShiftMask,		XK_d,	   spawn,	   {.v = discord  } },	 // Discord
 	{ MODKEY|ShiftMask, 	XK_f,	   spawn,	   {.v = thunar  } },	 // Thunar
 	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   {.v = telegram  } },	 // Telegram
 	{ MODKEY|ShiftMask,		XK_v,	   spawn,	   {.v = code  } },	     // VS Code
+	{ MODKEY|ShiftMask,		XK_a,	   spawn,	   {.v = dmenucmd} },
 
   	/* **************************** Layout keys ******************************** */	
 	
@@ -137,10 +130,10 @@ static Key keys[] = {
 	/* ***************************** HOTKEYS ******************************** */
 
 	{ 0, 			XF86XK_AudioMute, 	  spawn,	SHCMD("amixer -q set Master toggle; kill -46 $(pidof dwmblocks)" ) },
-	{ 0,			XF86XK_AudioLowerVolume,  spawn, 	SHCMD("amixer -q set Master 5%-; kill -46 $(pidof dwmblocks)" ) },
-	{ 0,			XF86XK_AudioRaiseVolume,  spawn,	SHCMD("amixer -q set Master 5%+; kill -46 $(pidof dwmblocks)" ) },
-	{ 0,			XF86XK_MonBrightnessDown, spawn,	SHCMD("brightnessctl set 2%-; kill -54 $(pidof dwmblocks)" ) },
-	{ 0,			XF86XK_MonBrightnessUp,   spawn,	SHCMD("brightnessctl set 2%+; kill -54 $(pidof dwmblocks)" ) },
+	{ 0,			XF86XK_AudioLowerVolume,  spawn, 	SHCMD("amixer -q set Master 5%-; kill -46 $(pidof dwmblocks) ") },
+	{ 0,			XF86XK_AudioRaiseVolume,  spawn,	SHCMD("amixer -q set Master 5%+; kill -46 $(pidof dwmblocks) ") },
+	{ 0,			XF86XK_MonBrightnessDown, spawn,	SHCMD("brightnessctl set 2%-") },
+	{ 0,			XF86XK_MonBrightnessUp,   spawn,	SHCMD("brightnessctl set 2%+") },
 	{ 0,			XF86XK_TouchpadToggle,	  spawn,	SHCMD("~/scripts/touchpad_toggle.sh") },
 
 
