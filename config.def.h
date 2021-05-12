@@ -70,6 +70,7 @@ static const char *thunar[]   =  { "thunar", NULL };
 static const char *st[]       =  { "st", NULL };
 static const char *telegram[] =  { "telegram-desktop", NULL };
 static const char *code[]     =  { "code", NULL };
+static const char *rofi[]	  =  { "rofi -show drun", NULL };
 
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
 static const StatusCmd statuscmds[] = {
@@ -83,7 +84,7 @@ static Key keys[] = {
 
 	/* modifier             key        function        argument */
 	{ MODKEY,				XK_Return, spawn,      {.v = st  } },	     // st Terminal
-	{ MODKEY|ShiftMask,     XK_p,      spawn,      {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,     XK_p,      spawn,      {.v = rofi } },
 	{ MODKEY|ShiftMask,     XK_Return, spawn,      {.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_b,	   spawn,	   {.v = brave } },  	 // Brave
 	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   {.v = chrome  } }, 	 // Chrome
@@ -91,6 +92,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask, 	XK_f,	   spawn,	   {.v = thunar  } },	 // Thunar
 	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   {.v = telegram  } },	 // Telegram
 	{ MODKEY|ShiftMask,		XK_v,	   spawn,	   {.v = code  } },	     // VS Code
+	{ MODKEY|ShiftMask,		XK_a,	   spawn,	   {.v = dmenucmd} },
 
   	/* **************************** Layout keys ******************************** */	
 	
