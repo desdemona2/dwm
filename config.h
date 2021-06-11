@@ -67,7 +67,7 @@ static const char *brave[]    =  { "brave", NULL  };
 static const char *chrome[]   =  { "google-chrome-stable", NULL };
 static const char *discord[]  =  { "discord", NULL };
 static const char *thunar[]   =  { "thunar", NULL };
-static const char *st[]       =  { "st", NULL };
+static const char *st[]       =  { "st", "-e", "fish", NULL };
 static const char *telegram[] =  { "telegram-desktop", NULL };
 static const char *code[]     =  { "code", NULL };
 static const char *rofi[]	  =  { "rofi", "-show", "drun", NULL };
@@ -83,9 +83,9 @@ static Key keys[] = {
 	/* ************************* Application keys  ************************* */
 
 	/* modifier             key        function        argument */
-	{ MODKEY,				XK_Return, spawn,      {.v = st  } },	     // st Terminal
+	{ MODKEY,				XK_Return, spawn,      {.v = termcmd  } },	 // alacritty Terminal
 	{ MODKEY|ShiftMask,     XK_p,      spawn,      {.v = rofi } },
-	{ MODKEY|ShiftMask,     XK_Return, spawn,      {.v = termcmd } },
+	{ MODKEY|ShiftMask,     XK_Return, spawn,      {.v = st } },
 	{ MODKEY|ShiftMask,		XK_b,	   spawn,	   {.v = brave } },  	 // Brave
 	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   {.v = chrome  } }, 	 // Chrome
 	{ MODKEY|ShiftMask,		XK_d,	   spawn,	   {.v = discord  } },	 // Discord
