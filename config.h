@@ -93,6 +93,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   {.v = telegram  } },	 // Telegram
 	{ MODKEY|ShiftMask,		XK_v,	   spawn,	   {.v = code  } },	     // VS Code
 	{ MODKEY|ShiftMask,		XK_a,	   spawn,	   {.v = dmenucmd} },
+    { MODKEY|ShiftMask,     XK_q,      spawn,      SHCMD("$HOME/scripts/power_menu.sh") },  //rofi power_menu
 
   	/* **************************** Layout keys ******************************** */	
 	
@@ -132,8 +133,8 @@ static Key keys[] = {
 	{ 0, 			XF86XK_AudioMute, 	  spawn,	SHCMD("amixer -q set Master toggle; kill -46 $(pidof dwmblocks)" ) },
 	{ 0,			XF86XK_AudioLowerVolume,  spawn, 	SHCMD("amixer -q set Master 5%-; kill -46 $(pidof dwmblocks) ") },
 	{ 0,			XF86XK_AudioRaiseVolume,  spawn,	SHCMD("amixer -q set Master 5%+; kill -46 $(pidof dwmblocks) ") },
-	{ 0,			XF86XK_MonBrightnessDown, spawn,	SHCMD("brightnessctl set 2%-") },
-	{ 0,			XF86XK_MonBrightnessUp,   spawn,	SHCMD("brightnessctl set 2%+") },
+	{ 0,			XF86XK_MonBrightnessDown, spawn,	SHCMD("brightnessctl set 2%-; pkill -RTMIN+20 dwmblocks") },
+	{ 0,			XF86XK_MonBrightnessUp,   spawn,	SHCMD("brightnessctl set 2%+; pkill -RTMIN+20 dwmblocks") },
 	{ 0,			XF86XK_TouchpadToggle,	  spawn,	SHCMD("~/scripts/touchpad_toggle.sh") },
 
 
