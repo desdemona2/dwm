@@ -84,6 +84,7 @@ static Key keys[] = {
 
 	/* modifier             key        function        argument */
 	{ MODKEY,				XK_Return, spawn,      {.v = termcmd  } },	 // alacritty Terminal
+    { MODKEY,               XK_q,      spawn,      SHCMD("$HOME/scripts/power_menu.sh") },  //rofi power_menu
 	{ MODKEY|ShiftMask,     XK_p,      spawn,      {.v = rofi } },
 	{ MODKEY|ShiftMask,     XK_Return, spawn,      {.v = st } },
 	{ MODKEY|ShiftMask,		XK_b,	   spawn,	   {.v = brave } },  	 // Brave
@@ -93,7 +94,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   {.v = telegram  } },	 // Telegram
 	{ MODKEY|ShiftMask,		XK_v,	   spawn,	   {.v = code  } },	     // VS Code
 	{ MODKEY|ShiftMask,		XK_a,	   spawn,	   {.v = dmenucmd} },
-    { MODKEY|ShiftMask,     XK_q,      spawn,      SHCMD("$HOME/scripts/power_menu.sh") },  //rofi power_menu
 
   	/* **************************** Layout keys ******************************** */	
 	
